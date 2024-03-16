@@ -49,9 +49,17 @@ function Header() {
               item.active ? (
                 <li key={item.name}>
                   <button
-                    onClick={() =>
-                      navigate(item.slug)(window.location.reload(), 1)
+                     onClick={() =>
+                      navigate(item.slug)(
+                        (item.slug === "/"
+                          ? (window.location.reload(), 1)
+                          : null) ||
+                          (item.slug === "/add-post"
+                            ? (window.location.reload(), 1)
+                            : null)
+                      )
                     }
+
                     className="inline-bock px-6 py-2 
                     duration-200 hover:underline
                      hover:bg-white 
